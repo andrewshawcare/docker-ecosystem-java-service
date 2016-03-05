@@ -15,4 +15,6 @@ RUN mvn dependency:resolve verify
 COPY src ./src
 RUN mvn package
 
-CMD ["java", "-jar", "target/service-jar-with-dependencies.jar"]
+COPY ./docker-entrypoint.sh .
+
+ENTRYPOINT ["./docker-entrypoint.sh"]
