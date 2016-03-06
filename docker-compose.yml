@@ -12,7 +12,7 @@ services:
     depends_on:
       - migration
   migration:
-    image: andrewshawcare/docker-ecosystem-migration
+    image: ${IMAGE_REGISTRY}/docker-ecosystem-migration
     links:
       - database
   database:
