@@ -15,6 +15,7 @@ RUN mvn dependency:resolve verify
 COPY src ./src
 RUN mvn package
 
+COPY ./wait-for-it.sh .
 COPY ./docker-entrypoint.sh .
 
-ENTRYPOINT ["./docker-entrypoint.sh"]
+ENTRYPOINT ["./wait-for-it.sh", "database:5432", "--", "./docker-entrypoint.sh"]
