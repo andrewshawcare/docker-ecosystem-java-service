@@ -6,8 +6,7 @@ fi
 
 case "$1" in
   deploy)
-    eval $(<./client-bundle/env.sh)
-    docker-compose up -d
+    exit 0
   ;;
   *)
     exit 0

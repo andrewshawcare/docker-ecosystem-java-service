@@ -11,8 +11,6 @@ services:
       - database
     depends_on:
       - migration
-    volumes:
-      - ./client-bundle:/src
   migration:
     image: ${IMAGE_REGISTRY}/docker-ecosystem-migration
     links:
