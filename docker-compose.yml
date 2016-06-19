@@ -3,7 +3,7 @@ volumes:
   database-data:
 services:
   docker-ecosystem-java-service:
-    image: ${IMAGE_REGISTRY}/docker-ecosystem-java-service:${IMAGE_VERSION}
+    image: ${REGISTRYHOST}/docker-ecosystem-java-service:${TAG}
     ports:
       - '4567'
     build: .
@@ -12,7 +12,7 @@ services:
     depends_on:
       - migration
   migration:
-    image: ${IMAGE_REGISTRY}/docker-ecosystem-migration
+    image: ${REGISTRYHOST}/docker-ecosystem-migration
     links:
       - database
   database:
