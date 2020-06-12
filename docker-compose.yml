@@ -5,7 +5,7 @@ services:
   docker-ecosystem-java-service:
     image: ${REGISTRY_HOST}/docker-ecosystem-java-service:${IMAGE_TAG}
     ports:
-      - '4567'
+      - "4567"
     build: .
     links:
       - database

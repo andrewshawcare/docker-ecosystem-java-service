@@ -2,9 +2,10 @@ FROM java:8-jdk
 
 EXPOSE 4567
 
-ADD http://apache.mirror.gtcomm.net/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz /apache-maven-3.3.9-bin.tar.gz
-RUN tar -xzf /apache-maven-3.3.9-bin.tar.gz
-ENV PATH ${PATH}:/apache-maven-3.3.9/bin
+ENV MAVEN_VERSION 3.6.3
+ADD https://muug.ca/mirror/apache-dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz /apache-maven-${MAVEN_VERSION}-bin.tar.gz
+RUN tar -xzf /apache-maven-${MAVEN_VERSION}-bin.tar.gz
+ENV PATH ${PATH}:/apache-maven-${MAVEN_VERSION}/bin
 
 RUN mkdir /src
 WORKDIR /src
